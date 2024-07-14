@@ -1,44 +1,23 @@
-import 'package:dashboard_ui/elements/major_elements.dart';
-import 'package:dashboard_ui/elements/minor_elements.dart';
+import 'package:dashboard_ui/elements/left_app_bar.dart';
+import 'package:dashboard_ui/elements/main_body/main_body.dart';
 import 'package:flutter/material.dart';
 
-class DashboardUI extends StatefulWidget {
-  const DashboardUI({super.key});
+class DashboardUI extends StatelessWidget {
+  final double sizeFactor; /* This double will be responsible for handling responsiveness scale across elements
+                              Implemented by (sizeFactor * desiredSize) */
+  const DashboardUI({super.key, required this.sizeFactor});
 
-  @override
-  State<DashboardUI> createState() => _DashboardUIState();
-}
-
-class _DashboardUIState extends State<DashboardUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(246, 247, 250, 1),
       body: Row(
         children: [
-          customAppBar(),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    linesAndText(),
-                    // Upper Half
-                    upperHalf(),
+          // App Bar like structure on the left most of the screen
+          customAppBar(sizeFactor),
 
-                    // Bottom Half
-                    Expanded(
-                        child: Container(
-                      color: Colors.blue,
-                    )),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Rest of the body
+          mainBody(sizeFactor),
         ],
       ),
     );

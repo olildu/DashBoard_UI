@@ -8,17 +8,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    double responsiveScale = MediaQuery.of(context).size.width;
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      debugShowCheckedModeBanner: false,
-      home: const DashboardUI(),
+      debugShowCheckedModeBanner: false, // Disabled banner 
+      home: DashboardUI(sizeFactor: responsiveScale), // Pass responisveScale [Helps with responsive design]
     );
   }
 }
