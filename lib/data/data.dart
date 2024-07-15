@@ -34,6 +34,7 @@ Widget marketSharePieChart(double sizeFactor){
       sectionsSpace: 0,
       centerSpaceRadius: sizeFactor * 0.045, // Adjust this value to change the size of the center hole
       sections: [
+        // Data if needed can be fetched using an API 
         PieChartSectionData(
             color: Colors.blue[900],
             value: 7,

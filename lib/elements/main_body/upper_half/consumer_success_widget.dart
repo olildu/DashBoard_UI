@@ -248,6 +248,7 @@ Widget barGraph() {
                 width: 1), // Only right border
           ),
         ),
+        // This data can also be fetched using an API, if needed
         barGroups: [
           makeGroupData(0, 200, 50, 40),  // Data passed to makeGroupData function in data.dart
           makeGroupData(1, 150, 100, 60), // Data passed to makeGroupData function in data.dart
